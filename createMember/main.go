@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"os"
 
 	log "github.com/sirupsen/logrus"
 
@@ -88,7 +89,8 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		Name:  memberInfo.Name,
 		Email: memberInfo.Email,
 	}
-	var sqsURL = "https://sqs.us-west-2.amazonaws.com/801659726931/SendEmailQueue"
+	sqsURL := os.Getenv("SQSURL")
+	//"https://sqs.us-west-2.amazonaws.com/801659726931/SendEmailQueue"
 	log.Infof("sqs url is: %s", sqsURL)
 	err = SendMessage(sess, sqsURL, mailInfo)
 	if err != nil {
