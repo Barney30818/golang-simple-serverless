@@ -28,7 +28,7 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-west-2'}
   environment:
-    SQS_QUEUE_URL: { Ref: SendEmailQueue }
+    SQSURL: { Ref: SendEmailQueue }
   iam:
     role: !Sub arn:aws:iam::${AWS::AccountId}:role/steveiamtest
     deploymentRole: ${self:custom.deploymentRole.${aws:accountId}, null}
