@@ -10,3 +10,23 @@ At meantime,this lambda function calls SQS service and SQS will trigger another 
 ## architecture ## 
 
 ![go-simple-serverless-arch](https://user-images.githubusercontent.com/69409373/179388416-c538c064-9a46-429c-a775-48a4bbbf41d7.jpg)
+
+ ## API ## 
+  
+ **createMember**
+
+```
+POST /createMember
+```
+
+ **example request payload**
+ 
+ ```
+ {
+   "Id":"barney30818",
+   "password":"aaaaaaaa",
+   "name":"Barney",
+   "email":"barney308188@gmail.com"
+}
+```
+
